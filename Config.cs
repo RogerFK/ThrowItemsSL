@@ -15,7 +15,7 @@ namespace ThrowItems
 		public bool IsEnabled { get; set; } = true;
 
 		[Description("i dunno how this one scales so don't ask. also not doing a 35 item dictionary for each item. can be negative so you throw it back (like poopoo)")]
-		public float ThrowForce { get; set; } = 20f;
+		public float ThrowForce { get; set; } = 17f;
 
 		[Description("if u set this to (0, 0.25, 0) it will throw up from player perspective. just adds force. must be: (X, Y, Z)")]
 		public string LaunchAddForce
@@ -41,6 +41,8 @@ namespace ThrowItems
 				ParseVector(value, initialPosVec3);
 			}
 		}
+
+		public bool MustUseCommand { get; set; } = false;
 
 		private void ParseVector(string value, Vector3 output)
 		{
