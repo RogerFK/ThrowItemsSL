@@ -62,8 +62,8 @@ namespace ThrowItems
 			yield return MEC.Timing.WaitUntilFalse(() => pickup.Rb == null); // mom im scared of loops
 			pickup.Rb.transform.Translate(Config.initialPosVec3, Space.Self);
 			pickup.Rb.AddForce(dir * Config.ThrowForce, ForceMode.Impulse);
-			Vector3 rand = new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-100f, 1f)).normalized;
-			pickup.Rb.AddTorque(rand.normalized * Config.RandomSpinForce, ForceMode.Impulse);
+			Vector3 rand = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-100f, 1f)).normalized;
+			pickup.Rb.angularVelocity = rand.normalized * Config.RandomSpinForce;
 		}
 	}
 }

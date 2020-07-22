@@ -18,7 +18,7 @@ namespace ThrowItems
 		public float ThrowForce { get; set; } = 17f;
 
 		[Description("setting to 0 \"disables\" the random spin, otherwise the items will randomly spin")]
-		public float RandomSpinForce { get; set; } = 0f;
+		public float RandomSpinForce { get; set; } = 20f;
 
 		[Description("if u set this to (0, 0.25, 0) it will throw up from player perspective. just adds force. must be: (X, Y, Z)")]
 		public string LaunchAddForce
