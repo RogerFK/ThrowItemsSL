@@ -17,6 +17,9 @@ namespace ThrowItems
 		[Description("i dunno how this one scales so don't ask. also not doing a 35 item dictionary for each item. can be negative so you throw it back (like poopoo)")]
 		public float ThrowForce { get; set; } = 17f;
 
+		[Description("setting to 0 \"disables\" the random spin, otherwise the items will randomly spin")]
+		public float RandomSpinForce { get; set; } = 0f;
+
 		[Description("if u set this to (0, 0.25, 0) it will throw up from player perspective. just adds force. must be: (X, Y, Z)")]
 		public string LaunchAddForce
 		{
