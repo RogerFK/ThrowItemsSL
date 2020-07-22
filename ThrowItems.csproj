@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ThrowItems</RootNamespace>
-    <AssemblyName>ThrowItemsV1.1</AssemblyName>
+    <AssemblyName>ThrowItemsV1.1.1</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -56,7 +56,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(EXILED_REFERENCES)\CommandSystem.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Mirror">
+    <Reference Include="Mirror, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\Mirror.dll</HintPath>
     </Reference>
     <Reference Include="System" />

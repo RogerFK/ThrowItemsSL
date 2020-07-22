@@ -45,6 +45,7 @@ namespace ThrowItems
 			}
 		}
 
+		[Description("forces ppl to use the throw command")]
 		public bool MustUseCommand { get; set; } = false;
 
 		private void ParseVector(string value, ref Vector3 output)
@@ -71,6 +72,7 @@ namespace ThrowItems
 			return;
 
 		Retardation:
+			// Throwing here would imply the configs will probably not be read, so let's avoid it, shall we?
 			Log.Error("Vectors configs MUST be: (X.XX, Y.YY, Z.ZZ) (i.e.: (0, 0.5, 0), and they MUST use a '.').");
 			return;
 		}
@@ -79,5 +81,12 @@ namespace ThrowItems
 		public Vector3 initialPosVec3 = new Vector3(0f, 0.5f, 0f);
 		[YamlIgnore()]
 		public Vector3 addLaunchForce = new Vector3(0f, 0.25f, 0f);
+
+		[Description("Disables the command '.throw'/'.drop'.")]
+		public bool CommandEnabled { set; get; } = false;
+		[Description("In seconds. The timeframe the client will get spammed with \"remove your item\" when using the command .throw")]
+		public float ForceRemoveItemTimeframe { set; get; } = 0.32f;
+		[Description("In seconds. The period that the client will get spammed with \"remove your item\" when using the command .throw (i.e. each X seconds)")]
+		public float ForceRemoveItemPeriod { set; get; } = 0.16f;
 	}
 }
