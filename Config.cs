@@ -45,6 +45,8 @@ namespace ThrowItems
 			}
 		}
 
+		[Description("Disables the command '.throw'/'.drop'.")]
+		public bool CommandEnabled { set; get; } = false;
 		[Description("forces ppl to use the throw command")]
 		public bool MustUseCommand { get; set; } = false;
 
@@ -81,12 +83,5 @@ namespace ThrowItems
 		public Vector3 initialPosVec3 = new Vector3(0f, 0.5f, 0f);
 		[YamlIgnore()]
 		public Vector3 addLaunchForce = new Vector3(0f, 0.25f, 0f);
-
-		[Description("Disables the command '.throw'/'.drop'.")]
-		public bool CommandEnabled { set; get; } = false;
-		[Description("In seconds. The timeframe the client will get spammed with \"remove your item\" when using the command .throw")]
-		public float ForceRemoveItemTimeframe { set; get; } = 0.32f;
-		[Description("In seconds. The period that the client will get spammed with \"remove your item\" when using the command .throw (i.e. each X seconds)")]
-		public float ForceRemoveItemPeriod { set; get; } = 0.16f;
 	}
 }

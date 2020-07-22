@@ -36,16 +36,8 @@ namespace ThrowItems
 					whoThrew = ev.Player.Id;
 					inv.CallCmdDropItem(index);
 					ev.ReturnMessage = "Rude boi throwing items at people smh";
-					// This would "fix" a game bug, only some times
-					MEC.Timing.CallPeriodically(Config.ForceRemoveItemTimeframe, Config.ForceRemoveItemPeriod, 
-						() => {
-							inv.NetworkitemUniq = -1;
-							inv.NetworkcurItem = ItemType.None;
-							inv.NetworkitemUniq = -1;
-							inv.NetworkcurItem = ItemType.None;
-							inv.RefreshModels();
-							inv.RefreshWeapon();
-						});
+					inv.NetworkitemUniq = -1;
+					inv.NetworkcurItem = ItemType.None;
 				}
 			}
 		}
@@ -60,7 +52,7 @@ namespace ThrowItems
 		private void Player_ItemDropped(Exiled.Events.EventArgs.ItemDroppedEventArgs ev) 
 		{
 			if (!Config.IsEnabled) return;
-			if (Config.MustUseCommand && ev.Player.Id != whoThrew) return;
+			if (Config.CommandEnabled && Config.MustUseCommand && ev.Player.Id != whoThrew) return;
 			whoThrew = -1;
 			MEC.Timing.RunCoroutine(ThrowWhenRigidbody(ev.Pickup, (ev.Player.ReferenceHub.PlayerCameraReference.forward + Config.addLaunchForce).normalized));
 		}
