@@ -26,7 +26,7 @@ namespace ThrowItems
 			}
 			set
 			{
-				ParseVector(value, addLaunchForce);
+				ParseVector(value, ref addLaunchForce);
 			}
 		}
 
@@ -38,13 +38,13 @@ namespace ThrowItems
 			}
 			set
 			{
-				ParseVector(value, initialPosVec3);
+				ParseVector(value, ref initialPosVec3);
 			}
 		}
 
 		public bool MustUseCommand { get; set; } = false;
 
-		private void ParseVector(string value, Vector3 output)
+		private void ParseVector(string value, ref Vector3 output)
 		{
 			string helper = value.Trim();
 
