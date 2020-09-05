@@ -37,7 +37,7 @@ namespace ThrowItems
 					inv.CallCmdDropItem(index);
 					ev.ReturnMessage = "Rude boi throwing items at people smh";
 					inv.NetworkitemUniq = -1;
-					inv.NetworkcurItem = ItemType.None;
+					inv.Network_curItemSynced = ItemType.None;
 				}
 			}
 		}
