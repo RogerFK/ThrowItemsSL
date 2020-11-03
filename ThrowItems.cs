@@ -63,7 +63,7 @@ namespace ThrowItems
 		{
 			Log.Debug("Starting the coroutine, waiting until the thrown Pickup has a RigidBody (has physics).");
 
-			yield return MEC.Timing.WaitUntilFalse(() => pickup.Rb == null); // mom im scared of loops
+			yield return MEC.Timing.WaitUntilFalse(() => pickup != null && pickup.Rb == null); // mom im scared of loops
 
 			Log.Debug($"Rigidbody instantiated. Translating its position to {Config.initialPosVec3}, then throwing with a force of {dir * Config.ThrowForce}.");
 
