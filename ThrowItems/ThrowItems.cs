@@ -39,7 +39,7 @@ namespace ThrowItems
         public override string Name { get; } = "ThrowItems";
 
         /// <inheritdoc/>
-        public override Version Version { get; } = new Version();
+        public override Version Version { get; } = new Version(1, 2, 2);
 
         /// <inheritdoc/>
         public override void OnEnabled()
