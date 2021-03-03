@@ -33,7 +33,7 @@ namespace ThrowItems.Commands
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
             Player player = Player.Get((sender as PlayerCommandSender)?.ReferenceHub);
-            if (player == null)
+            if (player == null || ThrowItems.BlacklistedIds.Contains(player.Id))
             {
                 response = string.Empty;
                 return false;

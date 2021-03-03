@@ -21,13 +21,13 @@ namespace ThrowItems
         /// <summary>
         /// Gets or sets the amount of force used when throwing an item.
         /// </summary>
-        [Description("i dunno how this one scales so don't ask. also not doing a 35 item dictionary for each item. can be negative so you throw it back (like poopoo)")]
+        [Description("The amount of force on an item on throw. Can be negative to throw it backwards.")]
         public float ThrowForce { get; set; } = 17f;
 
         /// <summary>
         /// Gets or sets the amount of random spin an item will have when thrown.
         /// </summary>
-        [Description("setting to 0 \"disables\" the random spin, otherwise the items will randomly spin")]
+        [Description("Setting this to 0 \"disables\" the random spin, otherwise the items will randomly spin.")]
         public float RandomSpinForce { get; set; } = 20f;
     }
 }
