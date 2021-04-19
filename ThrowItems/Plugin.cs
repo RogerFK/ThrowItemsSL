@@ -11,18 +11,18 @@ namespace ThrowItems
     using MEC;
 
     /// <inheritdoc/>
-    public class ThrowItems : Plugin<Config>
+    public class Plugin : Plugin<Config>
     {
-        private static readonly ThrowItems InstanceValue = new ThrowItems();
+        private static readonly Plugin InstanceValue = new Plugin();
 
-        private ThrowItems()
+        private Plugin()
         {
         }
 
         /// <summary>
-        /// Gets the instance of the <see cref="ThrowItems"/> class.
+        /// Gets the instance of the <see cref="Plugin"/> class.
         /// </summary>
-        public static ThrowItems Instance { get; } = InstanceValue;
+        public static Plugin Instance { get; } = InstanceValue;
 
         /// <summary>
         /// Gets the list of users who are currently blacklisted from throwing items.
@@ -45,6 +45,8 @@ namespace ThrowItems
         public override void OnEnabled()
         {
             Exiled.Events.Handlers.Player.ThrowingGrenade += OnThrowingGrenade;
+            Exiled.Events.Handlers.Player.UsingMedicalItem += OnUsingMedicalItem;
+            Exiled.Events.Handlers.Server.RoundStarted += OnRoundStarted;
             base.OnEnabled();
         }
 
@@ -52,6 +54,8 @@ namespace ThrowItems
         public override void OnDisabled()
         {
             Exiled.Events.Handlers.Player.ThrowingGrenade -= OnThrowingGrenade;
+            Exiled.Events.Handlers.Player.UsingMedicalItem -= OnUsingMedicalItem;
+            Exiled.Events.Handlers.Server.RoundStarted -= OnRoundStarted;
             base.OnDisabled();
         }
 
@@ -59,6 +63,17 @@ namespace ThrowItems
         {
             BlacklistedIds.Add(ev.Player.Id);
             Timing.CallDelayed(1.3f, () => BlacklistedIds.Remove(ev.Player.Id));
+        }
+
+        private static void OnUsingMedicalItem(UsingMedicalItemEventArgs ev)
+        {
+            BlacklistedIds.Add(ev.Player.Id);
+            Timing.CallDelayed(3f, () => BlacklistedIds.Remove(ev.Player.Id));
+        }
+
+        private static void OnRoundStarted()
+        {
+            BlacklistedIds.Clear();
         }
     }
 }

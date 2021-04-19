@@ -4,8 +4,12 @@
         <TargetFramework>net472</TargetFramework>
     </PropertyGroup>
 
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+
     <ItemGroup>
-    	<PackageReference Include="EXILED" Version="2.3.4" />
+    	<PackageReference Include="EXILED" Version="2.9.4-beta" />
     	<PackageReference Include="StyleCop.Analyzers" Version="1.1.118" />
 
     	<Reference Include="Assembly-CSharp" HintPath="$(EXILED_References)\Assembly-CSharp-Publicized.dll" Private="false" />
